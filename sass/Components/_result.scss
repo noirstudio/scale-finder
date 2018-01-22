@@ -1,0 +1,82 @@
+
+.result {
+
+  &__header{
+    margin-top:3rem;
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+
+    @include respond(phone){
+      flex-direction: column;
+      margin-top:7rem;
+    }
+
+  }
+
+  &__mainText{
+    display: inline-block;
+    margin: 0 2rem  ;
+    width:50%;
+
+    @include respond(phone){
+      margin: 1rem 1rem  ;
+      width:100%;
+    }
+
+  }
+
+  &__container {
+    display:flex;
+    margin-top:3rem;
+    margin-bottom:5rem;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    @include respond(phone){
+      flex-direction: column;
+      margin-top:1rem;
+      margin-bottom:1rem;
+      justify-content:center;
+      width:100%;
+
+    }
+  }
+
+  &__box{
+    background-color:$color-grey-dark;
+    padding: 2rem 2rem;
+    border-radius: 8px;
+    width:20.7rem;
+    margin: 1.5rem 1.5rem  ;
+    min-height: 250px;
+
+    @include respond(phone){
+      margin: .5rem 0 ;
+      width:100%;
+      min-height: 0;
+
+    }
+  }
+
+  &__percentage {
+    font-size:1.8rem;
+    color:$color-secondary;
+    float:right;
+    padding-bottom:1rem;
+
+  }
+
+  &__root-note{
+    font-size:7rem;
+    margin-top:2rem;
+
+  }
+
+  &__text-name {
+    font-size:2.4rem;
+
+
+  }
+
+}

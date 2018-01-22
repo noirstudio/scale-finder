@@ -1,0 +1,18 @@
+.footer {
+  width: 100%;
+  padding: 0 2rem;
+  font-size: 1.2rem;
+  bottom: 0;
+  color:$color-grey-light;
+  display: inline-block;
+  vertical-align: bottom;
+  position: absolute;
+
+
+
+  &__credits{
+    right:2rem;
+    float:right;
+    margin-bottom:1rem;
+  }
+}

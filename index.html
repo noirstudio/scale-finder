@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://use.typekit.net/kqr6blr.css">
+        <link rel="stylesheet" href="css/icon-font.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+        <script src="js/tonal.min.js"></script>
+        <script src="js/peg-0.10.0.min.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/mn-scale.js"></script>
+        <script src="js/scale-finder.js"></script>
+        <script src="js/style.js"></script>
+        <title>Scalefinder - find the scale</title>
+    </head>
+    <body>
+
+        <header class="header" id='header'>
+            <div class="header__logo-box">
+                <img src="img/img_Logo_light.svg" alt="Logo" class="header__logo">
+            </img>
+            </div>
+
+            <div class="header__text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary--main" id="heading-primary--main">Enter some notes to find out the scale</span>
+                </h1>
+            </div>
+        </header>
+
+        <main>
+            <section class="section-form" id="section-form">
+              <form action="#" class="form">
+                <div class="form__group">
+                  <input type="search" autofocus id="form__input" class="form__input" placeholder="Separate the by a coma i.e: em, a" id="search" autocomplete="off">
+                  <div class="form__category">
+                    <span> Search by </span>
+                    <a href="#" data-filter="chords" class="form__category--chords" id="chords"> chords </a>
+                    <a href="#" data-filter="notes" class="form__category--notes" id="notes"> notes </a>
+                  </div>
+
+                  <!-- BUTTON SEARCH
+                  <button type="submit" class="form__button">
+                    <img src="img/search.svg" alt="search button" class="form__magnifyer">
+                  -->
+                </div>
+              </form>
+            </section>
+
+            <section class="section-result">
+
+              <div class="result__header">
+
+                <div class="result__mainText">
+                <h2 class="heading-secondary">
+                  Scale containing (todo)
+                </h2>
+                </div>
+
+                <div class="toggleRoot">
+                  <label class="toggleRoot__switch">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                  </label>
+                  <p class="toggleRoot__text">
+                    Based on root note
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="result__container">
+
+                <div class="result__box">
+                  <div class="result__percentage">95%</div>
+                  <div class="result__root-note">D#</div>
+                  <div class="result__text-name">major flat two pentatonic</div>
+                </div>
+
+                <div class="result__box">
+                  <div class="result__percentage">95%</div>
+                  <div class="result__root-note">D#</div>
+                  <div class="result__text-name">major flat two pentatonic</div>
+                </div>
+
+                <div class="result__box">
+                  <div class="result__percentage">95%</div>
+                  <div class="result__root-note">D#</div>
+                  <div class="result__text-name">major flat two pentatonic</div>
+                </div>
+
+              </div>
+            </section>
+
+        </main>
+        <footer class="footer">
+          <div class="footer__credits">Scalefinder is a Noir Studio pet project and is based on tonal.js by danigb</div>
+
+        </footer>
+
+        <!-- comment the column test>
+        <section class="grid-test">
+            <div class="row">
+                <div class="col-1-of-2">
+                    Col 1 of 2
+                </div>
+                <div class="col-1-of-2">
+                    Col 1 of 2
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1-of-3">
+                    Col 1 of 3
+                </div>
+                <div class="col-1-of-3">
+                    Col 1 of 3
+                </div>
+                <div class="col-1-of-3">
+                    Col 1 of 3
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-1-of-3">
+                    Col 1 of 3
+                </div>
+                <div class="col-2-of-3">
+                    Col 1 of 3
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-1-of-4">
+                    Col 1 of 4
+                </div>
+                <div class="col-1-of-4">
+                    Col 1 of 4
+                </div>
+                <div class="col-2-of-4">
+                    Col 2 of 4
+                </div>
+            </div>
+
+               <div class="row">
+                <div class="col-1-of-4">
+                    Col 1 of 4
+                </div>
+                <div class="col-3-of-4">
+                    Col 3 of 4
+                </div>
+            </div>
+        </section>
+        <!-->
+    <div class="grammar" style="visibility:hidden;">
+      start
+      	= l:chord_list
+
+      chord_list
+      	= l:(e:chord " "? " "* { return e;})+
+          {return l.toString().split(",")}
+
+      chord
+      	= n:note m:[m]?
+      		{
+      		 	var result = n;
+      			if (m) result +=m;
+      			return [result];
+      		}
+
+      note
+        = n:([a-g]/[A-G]) m:[b#]?
+          { return (m === null) ? n : n+m; }
+    </div>
+    </body>
+</html>

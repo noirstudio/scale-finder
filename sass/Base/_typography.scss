@@ -1,0 +1,49 @@
+
+.heading-primary {
+	color:$color-white;
+	backface-visibility:hidden; /* reduce the shake of the animamtion */
+	margin-bottom: 3rem;
+	text-align: left;
+	line-height: 1.2;
+
+
+	&--main {
+		display:block;
+		font-size: 9rem;
+		font-weight: 400;
+
+		animation-name:moveInLeft;
+		animation-duration:.5s;
+		animation-timing-function: ease-out;
+
+		/*
+		animation-delay:3s; animation starts after 3seconds
+		animation-iteration-count:3; animation happens 3 times
+		*/
+		@include respond(tab-port){
+			font-size: 7rem;
+		}
+
+		@include respond(phone){
+			font-size: 4.5rem;
+		}
+
+
+
+	}
+
+}
+
+
+.heading-secondary {
+	font-size:2.4rem;
+	display: inline-block;
+	color:$color-secondary;
+	font-weight: 400;
+
+	@include respond(tab-port){
+		font-size: 2.5rem;
+	}
+
+	
+}

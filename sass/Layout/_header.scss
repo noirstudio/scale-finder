@@ -1,0 +1,56 @@
+.header {
+	position:relative;
+	height: 65vh;
+	background-color: $color-primary;
+
+	@include respond(phone){
+		height:45vh;
+	}
+
+	&__logo-box{
+		display: block;
+		height: auto;
+		position: relative;
+		max-width:25%;
+		padding-top: 2%;
+		margin-left: 4%;
+
+
+		@include respond(big-desk){
+			padding-top: 2%;
+			max-width:20%;
+		}
+
+		@include respond(tab-port){
+			padding-top: 4%;
+			max-width:40%;
+		}
+
+		@include respond(phone){
+			padding-top: 4%;
+			max-width:90%;
+		}
+
+
+
+	}
+
+	&__logo {
+		max-width: 50%;
+
+
+
+	}
+
+
+	&__text-box {
+		position: absolute;
+		top:25%;
+		margin: 0 4%;
+		width:65%;
+
+		@include respond(phone){
+			top: 30%;
+		}
+	}
+}

@@ -1,0 +1,88 @@
+.toggleRoot {
+  display: inline-block;
+  width:50%;
+  margin:0 2rem;
+  padding-top: 10px;
+
+  @include respond(phone){
+    width:100%;
+    margin:1rem 1rem;
+    padding-top: 0;
+
+  }
+
+
+
+  &__text {
+    display: inline-block;
+    font-size: 1.4rem;
+    vertical-align: top;
+
+
+  }
+
+  &__switch {
+      position: relative;
+      display: inline-block;
+      width: 3rem;
+      height: 1.6rem;
+      margin-right: .8rem;
+
+
+
+    }
+
+  &__switch input {
+    display:none;
+  }
+
+}
+
+
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.05rem;
+    width: 1.05rem;
+    left: .3rem;
+    bottom: .3rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+input:checked + .slider {
+  background-color: $color-secondary;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $color-secondary;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1.3rem);
+  -ms-transform: translateX(1.3rem);
+  transform: translateX(1.3rem);
+}
+
+  /* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
