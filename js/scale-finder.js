@@ -62,6 +62,11 @@ function selectInputType(type)
   $('#form__input').focus();
 }
 
+function clearResults() {
+  $(".section-result").fadeOut("fast");
+  $(".footer").css("position","absolute");
+}
+
 $( document ).ready(function() {
   // prepare the parser
   var parser = peg.generate($( ".grammar").text());
@@ -73,18 +78,20 @@ $( document ).ready(function() {
   input.keyup(function() {
 
     var valueForm = input.val();
-    try {
-      result = parser.parse(valueForm);
-      scaleList = scalesFromChords(result);
-      buildResults(scaleList.scaleList_);
-    } catch (e) {
-      buildResults([]);
+    if (valueForm.length == 0) {
+      clearResults();
+    }
+    else {
+      try {
+        result = parser.parse(valueForm);
+        scaleList = scalesFromChords(result);
+        buildResults(scaleList.scaleList_);
+      } catch (e) {
+        clearResults();
+      }
     }
 
-    if (valueForm.length == 0){
-      $(".section-result").fadeOut("fast");
-      $(".footer").css("position","absolute");
-    }
+
   });
 
   // select chords as default input type
