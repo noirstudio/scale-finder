@@ -73,19 +73,24 @@ $( document ).ready(function() {
 
   // input scanner
   var input = $( ".form__input" );
+  var lastResult;
 
   // install text input notification
   input.keyup(function() {
 
-    var valueForm = input.val();
+    var valueForm = input.val().trim();
     if (valueForm.length == 0) {
       clearResults();
     }
     else {
       try {
         result = parser.parse(valueForm);
-        scaleList = scalesFromChords(result);
-        buildResults(scaleList.scaleList_);
+        if (JSON.stringify(result) != JSON.stringify(lastResult))
+        {
+          lastResult = result;
+          scaleList = scalesFromChords(result);
+          buildResults(scaleList.scaleList_);
+        }
       } catch (e) {
         clearResults();
       }
