@@ -84,6 +84,7 @@ matchScaleListFromIndexes = function(indexes, scaleList)
     return result;
 }
 
+
 scalesFromIndexes = function(indexes)
 {
   // First try with a reduced set. If we don't find it within it, expand to all known scales
@@ -92,7 +93,7 @@ scalesFromIndexes = function(indexes)
 //  return result.score_ == 1
 //    ? result
 //    : matchScaleListFromIndexes(indexes, Tonal.scale.names());
-   return matchScaleListFromIndexes(indexes, Tonal.scale.names());
+   return matchScaleListFromIndexes(indexes, Tonal.scale.names().filter(name => name != "chromatic"));
 }
 
 // Attempts to order the scale list so that the ones contaning the firt note
@@ -100,16 +101,20 @@ scalesFromIndexes = function(indexes)
 
 filterScaleResult = function(result, firstNote)
 {
-  var filtered = [];
-  result.scaleList_.forEach(function(scale)
+
+  var calcWeight = function(scale)
   {
-    if (scale[0].toLowerCase() == firstNote[0].toLowerCase())
-    {
-      filtered.push(scale);
-    }
-  });
+    var scaleOrder =  ["major", "minor", "harmonic minor", "dorian", "phrygian", "lydian", "mixolydian", "locrian", "diminished"];
+    var scaleName = scale.substring(scale.indexOf(" ") + 1);
+    var index = scaleOrder.indexOf(scaleName);
+    var weight = index < 0 ? 0 : scaleOrder.length - index;
+    return weight;
+  }
+
+  var filtered = result.scaleList_.filter(scale => (scale[0].toLowerCase() == firstNote[0].toLowerCase()));
   if (filtered.length != 0)
   {
+    filtered.sort(function(a,b) { return calcWeight(b) - calcWeight(a)});
     result.scaleList_ = filtered;
   }
   return result;
