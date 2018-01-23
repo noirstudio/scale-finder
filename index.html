@@ -164,7 +164,7 @@
       	= l:chord_list
 
       chord_list
-      	= l:(e:chord " "? " "* { return e;})+
+      	= l:(e:chord ","? " "* { return e;})+
           {return l.toString().split(",")}
 
       chord
