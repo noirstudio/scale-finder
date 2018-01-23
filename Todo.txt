@@ -1,0 +1,8 @@
++ implement rootnote off
++ remove %
++ implement switch to note
++ make sure rootnote is the first word (not letter) and comparison uses chroma(notename)
+
++ scrollbar issue
++ text not shortened on paste
++ add link to tonal
