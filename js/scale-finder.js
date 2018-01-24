@@ -69,7 +69,7 @@ function clearResults() {
 
 $( document ).ready(function() {
   // prepare the parser
-  var parser = peg.generate($( ".grammar").text());
+  var parser = peg.generate($( ".grammar").text(), { allowedStartRules: ["note_list", "chord_list"]});
 
   // input scanner
   var input = $( ".form__input" );
@@ -84,15 +84,17 @@ $( document ).ready(function() {
     }
     else {
       try {
-        result = parser.parse(valueForm);
+        var rule = useChordInput ? "chord_list" : "note_list";
+        result = parser.parse(valueForm, { startRule: rule});
         if (JSON.stringify(result) != JSON.stringify(lastResult))
         {
           lastResult = result;
-          scaleList = scalesFromChords(result);
+          scaleList = useChordInput ? scalesFromChords(result) : scalesFromNotes(result);
           buildResults(scaleList.scaleList_);
         }
       } catch (e) {
         clearResults();
+        throw e;
       }
     }
 

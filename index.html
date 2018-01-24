@@ -160,8 +160,9 @@
         </section>
         <!-->
     <div class="grammar" style="visibility:hidden;">
-      start
-      	= l:chord_list
+      note_list
+      	= l:(n:note ","? " "* { return n;})+
+          {return l.toString().split(",")}
 
       chord_list
       	= l:(e:chord ","? " "* { return e;})+
