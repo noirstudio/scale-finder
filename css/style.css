@@ -73,6 +73,14 @@ svg {
 ::-webkit-search-results-decoration {
   display: none; }
 
+a {
+  text-decoration: none; }
+  a:link, a:visited {
+    color: #CC8460; }
+  a:hover {
+    color: #DBA88E;
+    cursor: pointer; }
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;

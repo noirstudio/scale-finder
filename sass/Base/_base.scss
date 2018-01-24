@@ -63,3 +63,17 @@ svg {
 ::-webkit-search-results-decoration {
   display:none;
 }
+
+a {
+	text-decoration: none;
+
+	&:link,
+	&:visited {
+		color:$color-secondary;
+	}
+
+	&:hover {
+		color:$color-secondary-light;
+		cursor: pointer;
+	}
+}
