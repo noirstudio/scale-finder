@@ -101,7 +101,7 @@ scalesFromIndexes = function(indexes)
 
 filterScaleResult = function(result, firstNote)
 {
-
+  var targetRoot = Tonal.Note.chroma(firstNote);
   var calcWeight = function(scale)
   {
     var scaleOrder =  ["major", "minor", "harmonic minor", "dorian", "phrygian", "lydian", "mixolydian", "locrian", "diminished"];
@@ -111,7 +111,7 @@ filterScaleResult = function(result, firstNote)
     return weight;
   }
 
-  var filtered = result.scaleList_.filter(scale => (scale[0].toLowerCase() == firstNote[0].toLowerCase()));
+  var filtered = result.scaleList_.filter(scale => (Tonal.Note.chroma(scale.split(" ",1)[0]) == targetRoot));
   if (filtered.length != 0)
   {
     filtered.sort(function(a,b) { return calcWeight(b) - calcWeight(a)});
