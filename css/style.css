@@ -67,6 +67,12 @@ svg {
   top: 0;
   left: 0; }
 
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {
+  display: none; }
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -391,7 +397,8 @@ input:checked + .slider:before {
     width: 65%; }
     @media only screen and (max-width: 37.5em) {
       .header__text-box {
-        top: 30%; } }
+        top: 30%;
+        width: 90%; } }
 
 .row {
   max-width: 114rem;
