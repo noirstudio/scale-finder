@@ -32,7 +32,7 @@ function displayResults(scaleList)
 
     var percentDiv = $('<div />', {
       class: 'result__percentage',
-      text: '100%'
+      text: ''
     });
 
     var rootDiv =  $('<div />', {

@@ -87,12 +87,7 @@ matchScaleListFromIndexes = function(indexes, scaleList)
 
 scalesFromIndexes = function(indexes)
 {
-  // First try with a reduced set. If we don't find it within it, expand to all known scales
-//  var reducedSet =  ["major", "minor", "harmonic minor", "dorian", "phrygian", "lydian"];
-//  var result = matchScaleListFromIndexes(indexes, reducedSet);
-//  return result.score_ == 1
-//    ? result
-//    : matchScaleListFromIndexes(indexes, Tonal.scale.names());
+  // do not return chromatic scales as they make little sense in our context
    return matchScaleListFromIndexes(indexes, Tonal.scale.names().filter(name => name != "chromatic"));
 }
 
@@ -112,7 +107,7 @@ filterScaleResult = function(result, tonic)
 
   var calcWeight = function(scale)
   {
-    var scaleOrder =  ["major", "minor", "harmonic minor", "dorian", "phrygian", "lydian", "mixolydian", "locrian", "diminished"];
+    var scaleOrder =  ["major", "aeolian", "harmonic minor", "dorian", "phrygian", "lydian", "mixolydian", "locrian", "diminished"];
     var scaleName = scale.substring(scale.indexOf(" ") + 1);
     var index = scaleOrder.indexOf(scaleName);
     var weight = index < 0 ? 0 : scaleOrder.length - index;
