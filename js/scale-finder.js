@@ -1,4 +1,17 @@
-function buildResults(scaleList)
+//
+// Yeah, I know...
+//
+
+var useChordInput = true;
+var restrictRootNote = true;
+var parser;
+var lastResult;
+
+//
+// Display the list of scales in the page
+//
+
+function displayResults(scaleList)
 {
   var container = $(".result__container");
   container.empty();
@@ -37,7 +50,10 @@ function buildResults(scaleList)
   });
 }
 
-var useChordInput = true;
+//
+// -- selects the search type [ 'chords' or 'notes' ]
+//    and update the display accordingly
+//
 
 function selectInputType(type)
 {
@@ -51,7 +67,7 @@ function selectInputType(type)
   $("#chords").css('color', useChordInput ? enabledColor : disabledColor);
   $("#notes").css('color', useChordInput ? disabledColor : enabledColor);
 
-  var headingText = "Enter some "+type+" to find out the scale";
+  var headingText = "Enter "+type+" to find scales they belong to";
   $('#heading-primary--main').text(headingText);
 
   var placeholderText = useChordInput
@@ -59,53 +75,72 @@ function selectInputType(type)
     : "Separate notes separated by a comma i.e: d#, db, c, ..";
 
   $('#form__input').attr("placeholder", placeholderText);
-  $('#form__input').focus();
+
+  onOptionChanged();
 }
 
-function clearResults() {
+//
+// -- option changed: set the focus back and re-evaluate input
+//
+
+function onOptionChanged()
+{
+  $('#form__input').focus();
+  evaluateInput(true);
+}
+
+//
+// -- Clears the result list
+//
+
+function clearResults()
+{
   $(".section-result").fadeOut("fast");
   $(".footer").css("position","absolute");
 }
 
+//
+// -- Parses the input and display results
+//
+
+function evaluateInput(forceDisplay)
+{
+  var valueForm = $( ".form__input" ).val().trim();
+  if (valueForm.length == 0) {
+    clearResults();
+  }
+  else {
+    try {
+      var rule = useChordInput ? "chord_list" : "note_list";
+      result = parser.parse(valueForm, { startRule: rule});
+      if ((JSON.stringify(result) != JSON.stringify(lastResult)) || forceDisplay)
+      {
+        lastResult = result;
+        scaleList = useChordInput ? scalesFromChords(result) : scalesFromNotes(result);
+        displayResults(scaleList.scaleList_);
+      }
+    } catch (e) {
+      clearResults();
+      throw e;
+    }
+  }
+}
+
+// -- Initializes the parser and hook up interface
+//
+
 $( document ).ready(function() {
   // prepare the parser
-  var parser = peg.generate($( ".grammar").text(), { allowedStartRules: ["note_list", "chord_list"]});
+  parser = peg.generate($( ".grammar").text(), { allowedStartRules: ["note_list", "chord_list"]});
 
-  // input scanner
-  var input = $( ".form__input" );
-  var lastResult;
+  // install all event handler
+  $( ".form__input" ).keyup(() => { evaluateInput(false) });
 
-  // install text input notification
-  input.keyup(function() {
-
-    var valueForm = input.val().trim();
-    if (valueForm.length == 0) {
-      clearResults();
-    }
-    else {
-      try {
-        var rule = useChordInput ? "chord_list" : "note_list";
-        result = parser.parse(valueForm, { startRule: rule});
-        if (JSON.stringify(result) != JSON.stringify(lastResult))
-        {
-          lastResult = result;
-          scaleList = useChordInput ? scalesFromChords(result) : scalesFromNotes(result);
-          buildResults(scaleList.scaleList_);
-        }
-      } catch (e) {
-        clearResults();
-        throw e;
-      }
-    }
-
-
-  });
-
-  // select chords as default input type
-  selectInputType('chords');
-
-  // install input type selection click
+  $(".toggleRoot__input").change(function() { restrictRootNote = this.checked;   onOptionChanged() });
 
   $("#chords").click(() => selectInputType('chords'));
   $("#notes").click(() => selectInputType('notes'));
+
+  // select default input type
+  selectInputType('notes');
 });
