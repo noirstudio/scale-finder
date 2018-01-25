@@ -147,5 +147,5 @@ scalesFromChords = function(chordNameList)
     })
   })
 
-  return filterScaleResult(scalesFromIndexes(indexes), chordNameList[0]);
+  return filterScaleResult(scalesFromIndexes(indexes), Tonal.Chord.notes(chordNameList[0])[0]);
 }
