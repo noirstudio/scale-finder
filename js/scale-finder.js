@@ -116,7 +116,7 @@ function evaluateInput(forceDisplay)
       if ((JSON.stringify(result) != JSON.stringify(lastResult)) || forceDisplay)
       {
         lastResult = result;
-        scaleList = useChordInput ? scalesFromChords(result) : scalesFromNotes(result);
+        scaleList = useChordInput ? scalesFromChords(result, restrictRootNote) : scalesFromNotes(result, restrictRootNote);
         displayResults(scaleList.scaleList_);
       }
     } catch (e) {
@@ -126,6 +126,7 @@ function evaluateInput(forceDisplay)
   }
 }
 
+//
 // -- Initializes the parser and hook up interface
 //
 

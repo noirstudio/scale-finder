@@ -99,9 +99,17 @@ scalesFromIndexes = function(indexes)
 // Attempts to order the scale list so that the ones contaning the firt note
 // are presented first
 
-filterScaleResult = function(result, firstNote)
+filterScaleResult = function(result, tonic)
 {
-  var targetRoot = Tonal.Note.chroma(firstNote);
+  var scaleSet;
+  if (tonic) {
+    var targetRoot = Tonal.Note.chroma(tonic);
+    scaleSet = result.scaleList_.filter(scale => (Tonal.Note.chroma(scale.split(" ",1)[0]) == targetRoot));
+  }
+  else {
+    scaleSet = result.scaleList_;
+  }
+
   var calcWeight = function(scale)
   {
     var scaleOrder =  ["major", "minor", "harmonic minor", "dorian", "phrygian", "lydian", "mixolydian", "locrian", "diminished"];
@@ -111,18 +119,17 @@ filterScaleResult = function(result, firstNote)
     return weight;
   }
 
-  var filtered = result.scaleList_.filter(scale => (Tonal.Note.chroma(scale.split(" ",1)[0]) == targetRoot));
-  if (filtered.length != 0)
+  if (scaleSet.length != 0)
   {
-    filtered.sort(function(a,b) { return calcWeight(b) - calcWeight(a)});
-    result.scaleList_ = filtered;
+    scaleSet.sort(function(a,b) { return calcWeight(b) - calcWeight(a)});
+    result.scaleList_ = scaleSet;
   }
   return result;
 }
 
 // try to detect possible scales from a list of notes
 
-scalesFromNotes = function(noteNameList)
+scalesFromNotes = function(noteNameList, restrictRootNote)
 {
   var indexes = [0,0,0,0,0,0,0,0,0,0,0,0];
 
@@ -130,12 +137,14 @@ scalesFromNotes = function(noteNameList)
   {
     indexes[Tonal.Note.chroma(noteName)] = 1;
   });
-  return filterScaleResult(scalesFromIndexes(indexes), noteNameList[0]);
+
+  var tonic  = restrictRootNote ? noteNameList[0] : null;
+  return filterScaleResult(scalesFromIndexes(indexes), tonic);
 }
 
 // try to detect the scale name from a list of chord names
 
-scalesFromChords = function(chordNameList)
+scalesFromChords = function(chordNameList, restrictRootNote)
 {
   var indexes = [0,0,0,0,0,0,0,0,0,0,0,0];
   chordNameList.forEach(function(chordName)
@@ -147,5 +156,6 @@ scalesFromChords = function(chordNameList)
     })
   })
 
-  return filterScaleResult(scalesFromIndexes(indexes), Tonal.Chord.notes(chordNameList[0])[0]);
+  var tonic = restrictRootNote ? Tonal.Chord.notes(chordNameList[0])[0] : null;
+  return filterScaleResult(scalesFromIndexes(indexes), tonic);
 }
