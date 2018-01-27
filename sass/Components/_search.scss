@@ -10,7 +10,7 @@
     width:60%;
     display:inline-block;
     color:$color-secondary;
-    
+
 
       &::-webkit-input-placeholder {
         color:$color-grey-light;
@@ -46,33 +46,10 @@
     font-size: 1.2rem;
     margin-left:-22rem;
 
-
-
-
-
-    &--chords{
-      display: inline-block;
-      letter-spacing: .3rem;
-      text-decoration: none;
-      color: $color-grey-light;
-      text-transform: uppercase;
-
-      &:focus {
-        color:$color-white;
-      }
-
-      @include respond(phone){
-      display:block;
-      padding: 1rem 0;
-      }
-
-    }
-
     &--notes {
       cursor: pointer;
       display: inline-block;
-      padding: 0 1.5rem;
-      color: red;
+      color:red;
       letter-spacing: .3rem;
       text-decoration: none;
       color: $color-grey-light;
@@ -83,11 +60,33 @@
       }
 
       @include respond(phone){
-    padding:0;
+      display: block;
+      padding : 1.5rem 0;
+
 
       }
 
     }
+
+
+        &--chords{
+          display: inline-block;
+          padding: 0 1.4rem;
+          letter-spacing: .3rem;
+          text-decoration: none;
+          color: $color-grey-light;
+          text-transform: uppercase;
+
+          &:focus {
+            color:$color-white;
+          }
+
+          @include respond(phone){
+          display:block;
+          padding:0;
+          }
+
+        }
 
     @include respond(phone){
     display:block;

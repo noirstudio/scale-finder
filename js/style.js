@@ -12,7 +12,7 @@ $( document ).ready(function() {
 
 
     var targetHeight = (windowWidth > 900) ? "40vh": "35vh";
-    var typeSize = (windowWidth > 900) ? "140%": "100%";
+    var typeSize = (windowWidth > 900) ? "130%": "100%";
 
     $('#header').animate ({
       height: targetHeight
@@ -34,6 +34,18 @@ $( document ).ready(function() {
     //}
 
   });
+
+
+  
+  var currentScrollPosition = 0;
+$(document).scroll(function(){
+    currentScrollPosition = $(this).scrollTop();
+});
+
+$("#chords").focus(function(){
+    $(document).scrollTop(currentScrollPosition);
+});
+
 
 
 

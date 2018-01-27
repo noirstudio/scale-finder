@@ -28,12 +28,10 @@ ORDER : Base + typography > general layout + grid > page layout > components
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%;
-  /*
-	@include respond(phone) { not necessary
-		font-size:50%;
-	}
-*/ }
+  font-size: 62.5%; }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
   @media only screen and (max-width: 75em) {
     html {
       font-size: 56.25%; } }
@@ -118,7 +116,7 @@ a {
   line-height: 1.2; }
   .heading-primary--main {
     display: block;
-    font-size: 9rem;
+    font-size: 8rem;
     font-weight: 400;
     animation-name: moveInLeft;
     animation-duration: .5s;
@@ -132,7 +130,7 @@ a {
         font-size: 7rem; } }
     @media only screen and (max-width: 37.5em) {
       .heading-primary--main {
-        font-size: 4.5rem; } }
+        font-size: 4.3rem; } }
 
 .heading-secondary {
   font-size: 2.4rem;
@@ -206,22 +204,9 @@ a {
   display: inline-block;
   font-size: 1.2rem;
   margin-left: -22rem; }
-  .form__category--chords {
-    display: inline-block;
-    letter-spacing: .3rem;
-    text-decoration: none;
-    color: #646776;
-    text-transform: uppercase; }
-    .form__category--chords:focus {
-      color: #fff; }
-    @media only screen and (max-width: 37.5em) {
-      .form__category--chords {
-        display: block;
-        padding: 1rem 0; } }
   .form__category--notes {
     cursor: pointer;
     display: inline-block;
-    padding: 0 1.5rem;
     color: red;
     letter-spacing: .3rem;
     text-decoration: none;
@@ -231,6 +216,20 @@ a {
       color: #fff; }
     @media only screen and (max-width: 37.5em) {
       .form__category--notes {
+        display: block;
+        padding: 1.5rem 0; } }
+  .form__category--chords {
+    display: inline-block;
+    padding: 0 1.4rem;
+    letter-spacing: .3rem;
+    text-decoration: none;
+    color: #646776;
+    text-transform: uppercase; }
+    .form__category--chords:focus {
+      color: #fff; }
+    @media only screen and (max-width: 37.5em) {
+      .form__category--chords {
+        display: block;
         padding: 0; } }
   @media only screen and (max-width: 37.5em) {
     .form__category {
@@ -261,7 +260,8 @@ a {
 .result__mainText {
   display: inline-block;
   margin: 0 2rem;
-  width: 50%; }
+  width: 50%;
+  display: none; }
   @media only screen and (max-width: 37.5em) {
     .result__mainText {
       margin: 1rem 1rem;

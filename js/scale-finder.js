@@ -72,7 +72,7 @@ function selectInputType(type)
 
   var placeholderText = useChordInput
     ? "Enter chords separated by a comma i.e: em, a, .."
-    : "Separate notes separated by a comma i.e: d#, db, c, ..";
+    : "Separate notes by a comma i.e: d#, db, c, ..";
 
   $('#form__input').attr("placeholder", placeholderText);
 
@@ -85,7 +85,7 @@ function selectInputType(type)
 
 function onOptionChanged()
 {
-  $('#form__input').focus();
+//  $('#form__input').focus();
   evaluateInput(true);
 }
 
