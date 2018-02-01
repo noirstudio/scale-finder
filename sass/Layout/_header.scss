@@ -1,10 +1,10 @@
 .header {
 	position:relative;
-	height: 65vh;
+	height: 55vh;
 	background-color: $color-primary;
 
 	@include respond(phone){
-		height:45vh;
+		height:40vh;
 	}
 
 	&__logo-box{
@@ -48,10 +48,12 @@
 		top:25%;
 		margin: 0 4%;
 		width:65%;
+		margin-bottom: 3rem;
 
 		@include respond(phone){
 			top: 30%;
 			width:90%;
+			margin-bottom: 0;
 		}
 	}
 }
