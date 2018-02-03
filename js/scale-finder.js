@@ -85,7 +85,7 @@ function selectInputType(type)
 
 function onOptionChanged()
 {
-//  $('#form__input').focus();
+  $('#form__input').focus();
   evaluateInput(true);
 }
 
