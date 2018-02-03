@@ -107,6 +107,7 @@ function evaluateInput(forceDisplay)
 {
   var valueForm = $( ".form__input" ).val().trim();
   if (valueForm.length == 0) {
+    lastResult = "";
     clearResults();
   }
   else {
@@ -120,6 +121,7 @@ function evaluateInput(forceDisplay)
         displayResults(scaleList.scaleList_);
       }
     } catch (e) {
+      lastResult = "";
       clearResults();
       throw e;
     }
