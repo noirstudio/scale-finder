@@ -157,11 +157,11 @@
         <!-->
     <div class="grammar" style="visibility:hidden;">
       note_list
-      	= l:(n:note ","? " "* { return n;})+
+      	= l:(n:note " "* ","? " "* { return n;})+
           {return l.toString().split(",")}
 
       chord_list
-      	= l:(e:chord ","? " "* { return e;})+
+      	= l:(e:chord " "* ","? " "* { return e;})+
           {return l.toString().split(",")}
 
       chord
