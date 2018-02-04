@@ -7,6 +7,16 @@ var restrictRootNote = true;
 var parser;
 var lastResult;
 
+function displayError(message)
+{
+  var container = $(".result__container");
+  container.empty();
+  $(".result__mainText").text(message);
+ // display result
+  $(".section-result").css("display","block").hide().fadeIn();
+  $(".result__mainText").css("display","block").hide().fadeIn();
+  $(".footer").css("position","static");
+}
 //
 // Display the list of scales in the page
 //
@@ -15,6 +25,9 @@ function displayResults(scaleList)
 {
   var container = $(".result__container");
   container.empty();
+
+ // hide Error
+ $(".result__mainText").css("display","none").fadeOut();
 
  // display result
   $(".section-result").css("display","block").hide().fadeIn();
@@ -122,7 +135,7 @@ function evaluateInput(forceDisplay)
       }
     } catch (e) {
       lastResult = "";
-      clearResults();
+      displayError("I don't understand what you typed");
       throw e;
     }
   }
