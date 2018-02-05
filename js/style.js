@@ -36,7 +36,7 @@ $( document ).ready(function() {
   });
 
 
-  
+
   var currentScrollPosition = 0;
 $(document).scroll(function(){
     currentScrollPosition = $(this).scrollTop();

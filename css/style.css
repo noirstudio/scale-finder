@@ -277,13 +277,6 @@ a {
   margin-bottom: 5rem;
   flex-wrap: wrap;
   align-content: flex-start; }
-  @media only screen and (max-width: 37.5em) {
-    .result__container {
-      flex-direction: column;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      justify-content: center;
-      width: 100%; } }
 
 .result__box {
   background-color: #282B37;
@@ -291,12 +284,12 @@ a {
   border-radius: 8px;
   width: 20.7rem;
   margin: 1.5rem 1.5rem;
-  min-height: 250px; }
+  min-height: 234px; }
   @media only screen and (max-width: 37.5em) {
     .result__box {
-      margin: .5rem 0;
-      width: 100%;
-      min-height: 0; } }
+      margin: .5rem .5rem;
+      width: 47%;
+      min-height: 172px; } }
 
 .result__percentage {
   font-size: 1.8rem;
@@ -305,8 +298,7 @@ a {
   padding-bottom: 1rem; }
 
 .result__root-note {
-  font-size: 7rem;
-  margin-top: 2rem; }
+  font-size: 7rem; }
 
 .result__text-name {
   font-size: 2.4rem; }
@@ -474,7 +466,7 @@ input:checked + .slider:before {
   height: 100px; }
 
 .section-result {
-  padding: 0 4%;
+  padding: 0 2%;
   background-color: #12141D;
   height: 100%;
   display: none; }

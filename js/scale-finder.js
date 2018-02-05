@@ -43,10 +43,10 @@ function displayResults(scaleList)
       class: 'result__box'
     });
 
-    var percentDiv = $('<div />', {
+   var percentDiv = $('<div />', {
       class: 'result__percentage',
       text: ''
-    });
+   });
 
     var rootDiv =  $('<div />', {
       class: 'result__root-note',
@@ -58,7 +58,7 @@ function displayResults(scaleList)
       text: scaleName
     });
 
-    boxDiv.append(percentDiv, rootDiv, scaleDiv);
+    boxDiv.append(rootDiv, scaleDiv);
     container.append(boxDiv);
   });
 }
