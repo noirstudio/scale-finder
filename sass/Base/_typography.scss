@@ -19,30 +19,13 @@
 		animation-delay:3s; animation starts after 3seconds
 		animation-iteration-count:3; animation happens 3 times
 		*/
-		@include respond(tab-port){
-			font-size: 7rem;
+			@include respond(tab-port){
+				font-size: 7rem;
+			}
+
+			@include respond(phone){
+				font-size: 4.3rem;
+			}
 		}
-
-		@include respond(phone){
-			font-size: 4.3rem;
-		}
-
-
-
-	}
-
-}
-
-
-.heading-secondary {
-	font-size:2.4rem;
-	display: inline-block;
-	color:$color-secondary;
-	font-weight: 400;
-
-	@include respond(tab-port){
-		font-size: 2.5rem;
-	}
-
 
 }

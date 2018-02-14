@@ -11,12 +11,12 @@ function displayError(message)
 {
   var container = $(".result__container");
   container.empty();
-  $(".heading-secondary").text(message);
+  $(".heading-error").text(message);
   $(".toggleRoot").hide();
  // display result
   $(".section-result").css("display","block").hide().fadeIn();
   $(".result__mainText").css("display","block").hide().fadeIn();
-  $(".footer").css("position","static");
+  $(".footer").css("position","absolute");
 }
 //
 // Display the list of scales in the page
@@ -137,7 +137,7 @@ function evaluateInput(forceDisplay)
       }
     } catch (e) {
       lastResult = "";
-      displayError("I don't understand what you typed");
+      displayError("Oh snap! I don't understand what you typed 𝄇 ");
       throw e;
     }
   }

@@ -60,23 +60,20 @@
     }
   }
 
-  &__percentage {
-    font-size:1.8rem;
-    color:$color-secondary;
-    float:right;
-    padding-bottom:1rem;
-
-  }
-
   &__root-note{
     font-size:7rem;
-
   }
 
   &__text-name {
     font-size:2.4rem;
+  }
 
 
+  &__scale-notes {
+    color:$color-secondary;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    padding-top:4rem;
   }
 
 }

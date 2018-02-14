@@ -19,6 +19,7 @@
         <title>Scalefinder - find the scale</title>
     </head>
     <body>
+      
 
         <header class="header" id='header'>
             <div class="header__logo-box">
@@ -53,7 +54,7 @@
               <div class="result__header">
 
                 <div class="result__mainText">
-                <h2 class="heading-secondary">
+                <h2 class="heading-error">
                   Error message
                 </h2>
                 </div>
@@ -74,21 +75,21 @@
               <div class="result__container">
 
                 <div class="result__box">
-                  <div class="result__percentage">95%</div>
                   <div class="result__root-note">D#</div>
                   <div class="result__text-name">major flat two pentatonic</div>
+                  <div class="result__scale-notes">D, E, B, C, m, d, r, t, D, V#, G#, R#</div>
                 </div>
 
                 <div class="result__box">
-                  <div class="result__percentage">95%</div>
                   <div class="result__root-note">D#</div>
                   <div class="result__text-name">major flat two pentatonic</div>
+                  <div class="result__scale-notes">major flat two pentatonic</div>
                 </div>
 
                 <div class="result__box">
-                  <!--<div class="result__percentage">95%</div> -->
                   <div class="result__root-note">D#</div>
                   <div class="result__text-name">major flat two pentatonic</div>
+                  <div class="result__scale-notes">major flat two pentatonic</div>
                 </div>
 
               </div>
@@ -156,7 +157,7 @@
             </div>
         </section>
         <!-->
-    <div class="grammar" style="visibility:hidden;">
+    <div class="grammar" style="display:none;">
       note_list
       	= l:(n:note " "* ","? " "* { return n;})+
           {return l.toString().split(",")}

@@ -22,7 +22,7 @@
     @include respond(phone){
     display:block;
     margin-left:0;
-    
+
 
     }
 
@@ -126,3 +126,14 @@
     }
   }
 }
+
+.heading-error {
+	font-size:2.4rem;
+	color:$color-secondary;
+	font-weight: 400;
+  height:100%;
+
+	  @include respond(tab-port){
+		  font-size: 2.5rem;
+  	}
+  }

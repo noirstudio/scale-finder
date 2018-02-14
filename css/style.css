@@ -131,15 +131,6 @@ a {
       .heading-primary--main {
         font-size: 4.3rem; } }
 
-.heading-secondary {
-  font-size: 2.4rem;
-  display: inline-block;
-  color: #CC8460;
-  font-weight: 400; }
-  @media only screen and (max-width: 56.25em) {
-    .heading-secondary {
-      font-size: 2.5rem; } }
-
 .u-center-text {
   text-align: center !important; }
 
@@ -251,6 +242,15 @@ a {
   .form__button:focus {
     outline: none; }
 
+.heading-error {
+  font-size: 2.4rem;
+  color: #CC8460;
+  font-weight: 400;
+  height: 100%; }
+  @media only screen and (max-width: 56.25em) {
+    .heading-error {
+      font-size: 2.5rem; } }
+
 .result__header {
   margin-top: 3rem;
   display: flex;
@@ -291,17 +291,17 @@ a {
       width: 47%;
       min-height: 172px; } }
 
-.result__percentage {
-  font-size: 1.8rem;
-  color: #CC8460;
-  float: right;
-  padding-bottom: 1rem; }
-
 .result__root-note {
   font-size: 7rem; }
 
 .result__text-name {
   font-size: 2.4rem; }
+
+.result__scale-notes {
+  color: #CC8460;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  padding-top: 4rem; }
 
 .toggleRoot {
   display: inline-block;
