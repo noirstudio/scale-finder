@@ -11,7 +11,7 @@ function displayError(message)
 {
   var container = $(".result__container");
   container.empty();
-  $(".result__mainText").text(message);
+  $(".heading-secondary").text(message);
   $(".toggleRoot").hide();
  // display result
   $(".section-result").css("display","block").hide().fadeIn();
