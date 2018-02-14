@@ -12,6 +12,7 @@ function displayError(message)
   var container = $(".result__container");
   container.empty();
   $(".result__mainText").text(message);
+  $(".toggleRoot").hide();
  // display result
   $(".section-result").css("display","block").hide().fadeIn();
   $(".result__mainText").css("display","block").hide().fadeIn();
@@ -26,13 +27,14 @@ function displayResults(scaleList)
   var container = $(".result__container");
   container.empty();
 
- // hide Error
+ // hide Error & show root toggle
  $(".result__mainText").css("display","none").fadeOut();
+ $(".toggleRoot").show();
 
  // display result
-  $(".section-result").css("display","block").hide().fadeIn();
+  $(".section-result").css("display","block").fadeIn();
   $(".footer").css("position","static");
-
+  container.hide().fadeIn();
   scaleList.forEach(function(scale)
   {
     var splitPoint = scale.indexOf(' ');
