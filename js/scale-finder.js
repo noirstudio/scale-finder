@@ -41,14 +41,11 @@ function displayResults(scaleList)
     var rootName = scale.substr(0,splitPoint);
     var scaleName = scale.substr(splitPoint +1);
 
+    var scaleNotes = Tonal.Scale.notes(rootName, scaleName).join(", ");
+
     var boxDiv = $('<div />', {
       class: 'result__box'
     });
-
-   var percentDiv = $('<div />', {
-      class: 'result__percentage',
-      text: ''
-   });
 
     var rootDiv =  $('<div />', {
       class: 'result__root-note',
@@ -60,7 +57,11 @@ function displayResults(scaleList)
       text: scaleName
     });
 
-    boxDiv.append(rootDiv, scaleDiv);
+    var noteDiv = $('<div />', {
+      class: 'result__scale-notes',
+      text: scaleNotes
+    });
+    boxDiv.append(rootDiv, scaleDiv, noteDiv);
     container.append(boxDiv);
   });
 }
