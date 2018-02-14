@@ -159,6 +159,7 @@ $( document ).ready(function() {
   $("#chords").click(() => selectInputType('chords'));
   $("#notes").click(() => selectInputType('notes'));
 
+  $(".form").submit(() => { event.preventDefault(); $( ".form__input" ).blur();});
   // select default input type
   selectInputType('notes');
 });
