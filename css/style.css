@@ -284,7 +284,10 @@ a {
   border-radius: 8px;
   width: 20.7rem;
   margin: 1.5rem 1.5rem;
-  min-height: 234px; }
+  min-height: 234px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; }
   @media only screen and (max-width: 37.5em) {
     .result__box {
       margin: .5rem .5rem;
@@ -295,12 +298,15 @@ a {
   font-size: 7rem; }
 
 .result__text-name {
-  font-size: 2.4rem; }
+  font-size: 2.4rem;
+  margin-bottom: 4rem; }
 
 .result__scale-notes {
   color: #CC8460;
   font-size: 1.6rem;
-  padding-top: 4rem; }
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end; }
 
 .toggleRoot {
   display: inline-block;

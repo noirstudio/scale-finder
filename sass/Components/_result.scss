@@ -51,6 +51,11 @@
     width:20.7rem;
     margin: 1.5rem 1.5rem  ;
     min-height: 234px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+
 
     @include respond(phone){
       margin: .5rem .5rem ;
@@ -66,13 +71,16 @@
 
   &__text-name {
     font-size:2.4rem;
+    margin-bottom: 4rem;
   }
 
 
   &__scale-notes {
     color:$color-secondary;
     font-size: 1.6rem;
-    padding-top:4rem;
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
   }
 
 }
