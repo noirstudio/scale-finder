@@ -7,13 +7,7 @@ $( document ).ready(function() {
 
     var windowWidth = $(window).width();
 
-
-    if (windowWidth < 600)
-    {
-      // hide footer on mobile device
-      $(".footer").fadeOut();
-    }
-    else
+    if (windowWidth > 600)
     {
       var targetHeight = (windowWidth > 900) ? "40vh": "35vh";
       var typeSize = (windowWidth > 900) ? "130%": "100%";
@@ -32,7 +26,7 @@ $( document ).ready(function() {
         width:'50%'
       },{
         duration : 300
-      }
+      });
     }
 
   );

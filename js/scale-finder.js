@@ -6,6 +6,7 @@ var useChordInput = true;
 var restrictRootNote = true;
 var parser;
 var lastResult;
+var assumeMobile;
 
 function displayError(message)
 {
@@ -16,7 +17,13 @@ function displayError(message)
  // display result
   $(".section-result").css("display","block").hide().fadeIn();
   $(".result__mainText").css("display","block").hide().fadeIn();
-  $(".footer").css("position","absolute");
+  if (assumeMobile)
+  {
+    $(".footer").hide();
+  }
+  else {
+    $(".footer").css("position","absolute");
+  }
 }
 //
 // Display the list of scales in the page
@@ -33,7 +40,15 @@ function displayResults(scaleList)
 
  // display result
   $(".section-result").css("display","block").fadeIn();
-  $(".footer").css("position","static");
+
+  if (assumeMobile)
+  {
+    $(".footer").hide();
+  }
+  else {
+    $(".footer").css("position","static");
+  }
+
   container.hide().fadeIn();
   scaleList.forEach(function(scale)
   {
@@ -163,4 +178,6 @@ $( document ).ready(function() {
   $(".form").submit(() => { event.preventDefault(); $( ".form__input" ).blur();});
   // select default input type
   selectInputType('notes');
+
+  assumeMobile = $(window).width() < 600;
 });
