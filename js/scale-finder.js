@@ -130,10 +130,25 @@ function clearResults()
   $(".footer").css("position","absolute");
 }
 
+function keyHandler()
+{
+  if (assumeMobile)
+  {
+
+    $('#form__input').focus(function(){
+      var offset = $(this).offset();
+      $('html, body').animate({
+          scrollTop: offset.top,
+          scrollLeft: offset.left
+      });
+    });
+  }
+  evaluateInput(false);
+}
+
 //
 // -- Parses the input and display results
 //
-
 function evaluateInput(forceDisplay)
 {
   var valueForm = $( ".form__input" ).val().trim();
@@ -168,7 +183,7 @@ $( document ).ready(function() {
   parser = peg.generate($( ".grammar").text(), { allowedStartRules: ["note_list", "chord_list"]});
 
   // install all event handler
-  $( ".form__input" ).keyup(() => { evaluateInput(false) });
+  $( ".form__input" ).keyup(() => { keyHandler(); });
 
   $(".toggleRoot__input").change(function() { restrictRootNote = this.checked;   onOptionChanged() });
 
@@ -180,16 +195,4 @@ $( document ).ready(function() {
   selectInputType('notes');
 
   assumeMobile = $(window).width() < 600;
-
-  if (assumeMobile)
-  {
-
-    $('#form__input').focus(function(){
-      var offset = $(this).offset();
-      $('html, body').animate({
-          scrollTop: offset.top,
-          scrollLeft: offset.left
-      });
-    });
-  }
 });
