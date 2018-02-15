@@ -134,14 +134,11 @@ function keyHandler()
 {
   if (assumeMobile)
   {
-
-    $('#form__input').focus(function(){
       var offset = $(this).offset();
       $('html, body').animate({
           scrollTop: offset.top,
           scrollLeft: offset.left
       });
-    });
   }
   evaluateInput(false);
 }
