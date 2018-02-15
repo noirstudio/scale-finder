@@ -259,7 +259,7 @@ a {
   @media only screen and (max-width: 37.5em) {
     .result__header {
       flex-direction: column;
-      margin-top: 7rem; } }
+      margin-top: 5rem; } }
 
 .result__mainText {
   display: inline-block;
