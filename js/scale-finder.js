@@ -180,4 +180,16 @@ $( document ).ready(function() {
   selectInputType('notes');
 
   assumeMobile = $(window).width() < 600;
+
+  if (assumeMobile)
+  {
+
+    $('#form__input').focus(function(){
+      var offset = $(this).offset();
+      $('html, body').animate({
+          scrollTop: offset.top,
+          scrollLeft: offset.left
+      });
+    });
+  }
 });
