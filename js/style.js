@@ -1,8 +1,5 @@
 $( document ).ready(function() {
 
-
-
-
   $('#form__input').keypress(function(){
 
     var windowWidth = $(window).width();
@@ -30,20 +27,14 @@ $( document ).ready(function() {
     }
   });
 
-
-
   var currentScrollPosition = 0;
-$(document).scroll(function(){
-    currentScrollPosition = $(this).scrollTop();
-});
 
-$("#chords").focus(function(){
-    $(document).scrollTop(currentScrollPosition);
-});
+  $(document).scroll(function(){
+      currentScrollPosition = $(this).scrollTop();
+  });
 
-
-
-
-
+  $("#chords").focus(function(){
+      $(document).scrollTop(currentScrollPosition);
+  });
 
 });
