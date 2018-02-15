@@ -28,11 +28,6 @@ $( document ).ready(function() {
         duration : 300
       });
     }
-
-  );
-
-    //}
-
   });
 
 
